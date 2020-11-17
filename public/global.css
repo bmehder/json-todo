@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 320px;
+  width: 100%;
+  min-height: 100vh;
+  margin: auto;
+  padding: 0 0 40px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  font-size: 110%;
+  font-weight: 300;
+  background: darkorange;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0.5)
+  );
+}
