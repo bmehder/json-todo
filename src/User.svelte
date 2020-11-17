@@ -3,28 +3,27 @@
   export let key;
   export let user;
   export let undo = false;
-  export let counter = 5;
-  export let disabled = false;
+  export let count = 5;
 
   const deleteUser = () => {
     undo = true;
-    disabled = true;
-    let timer = setInterval(() => {
-      counter--;
+    let countdown = setInterval(() => {
+      count--;
     }, 1000);
     setTimeout(() => {
       if (undo) {
-        clearInterval(timer);
+        clearInterval(countdown);
         delete $users[key];
         $users = $users;
         undo = false;
-        disabled = false;
+        count = 5;
       }
     }, 5000);
   };
 
   const undoDeleteUser = () => {
     undo = false;
+    count = 5;
   };
 </script>
 
@@ -59,6 +58,6 @@
   {#if !undo}
     <button on:click={deleteUser}>🗑️</button>
   {:else}
-    <button on:click={undoDeleteUser}>undo ({counter})</button>
+    <button on:click={undoDeleteUser}>undo ({count})</button>
   {/if}
 </div>

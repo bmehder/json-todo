@@ -3,14 +3,14 @@ import { writable } from 'svelte/store';
 export let users = writable({
   ID111: {
     id: 111,
-    name: 'A',
+    name: 'Lulu',
   },
   ID222: {
     id: 222,
-    name: 'B',
+    name: 'Max',
   },
   ID333: {
     id: 333,
-    name: 'C',
+    name: 'Porridge',
   },
 });
