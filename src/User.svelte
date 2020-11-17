@@ -3,16 +3,24 @@
   export let key;
   export let user;
   export let undo = false;
+  export let counter = 5;
+  export let disabled = false;
 
   const deleteUser = () => {
     undo = true;
+    disabled = true;
+    let timer = setInterval(() => {
+      counter--;
+    }, 1000);
     setTimeout(() => {
       if (undo) {
+        clearInterval(timer);
         delete $users[key];
         $users = $users;
         undo = false;
+        disabled = false;
       }
-    }, 3000);
+    }, 5000);
   };
 
   const undoDeleteUser = () => {
@@ -23,7 +31,7 @@
 <style>
   #user {
     display: grid;
-    grid-template-columns: 3fr 10fr 3fr;
+    grid-template-columns: 2fr 10fr 5fr;
     grid-gap: 10px;
   }
   input {
@@ -40,6 +48,9 @@
     padding: 5px;
     min-height: 30px;
   }
+  button:hover {
+    background: darkorange;
+  }
 </style>
 
 <div id="user">
@@ -48,6 +59,6 @@
   {#if !undo}
     <button on:click={deleteUser}>🗑️</button>
   {:else}
-    <button on:click={undoDeleteUser}>undo</button>
+    <button on:click={undoDeleteUser}>undo ({counter})</button>
   {/if}
 </div>

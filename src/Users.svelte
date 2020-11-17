@@ -22,11 +22,21 @@
   button {
     height: 45px;
     margin-bottom: 1em;
+    font-weight: bold;
+    outline: none;
+    background: white;
+    border: 4px solid darkorange;
+    transition: 100ms;
+  }
+  button:hover {
+    background: darkorange;
   }
   aside {
     background: white;
+    margin-top: 1em;
     padding: 1em 2em;
     border-radius: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.24);
   }
   h3 {
     text-align: center;
@@ -41,10 +51,9 @@
   {/each}
 
   <button on:click={addUser}>Add User</button>
-
 </div>
 
 <aside>
-  <h3>DataStore (backend)</h3>
+  <h3>DataStore (Backend)</h3>
   <pre>{JSON.stringify($users, null, 2)}</pre>
 </aside>

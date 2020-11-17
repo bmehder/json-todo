@@ -3,10 +3,19 @@
 </script>
 
 <style>
+  h1,
+  h2 {
+    text-align: center;
+    color: white;
+  }
   h1 {
-    margin: 10px 0;
+    margin: 1em 0 0;
+  }
+  h2 {
+    margin: 0 0 1em;
   }
 </style>
 
-<h1>Reactive ToDo List via JSON Object</h1>
+<h1>Reactive ToDo List</h1>
+<h2>(w/ JS Object Store)</h2>
 <Users />
